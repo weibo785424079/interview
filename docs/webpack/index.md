@@ -1,1 +1,42 @@
-webpack
+[webpack](https://www.webpackjs.com/concepts/)
+
+- webpack 介绍
+- webpack 配置
+- webpack 构建流程
+- webpack loader
+  - babel-loader、ta-loader、style-loader、css-loader、postcss-loader、less-loader
+  - file-loader、url-loader（处理文件）（url-loader 一般线上使用缓存等去优化构建）
+  - thread-loader 多进程构建 cache-loader
+- webpack plugin
+  - HtmlWebpackPlugin（生成 html 模版）
+  - MiniCssExtractPlugin（抽离公共 css）
+  - HappyPack 多进程构建
+  - parallelUglifyPlugin 多进程压缩
+  - HotModuleReplacementPlugin 热更新
+  - DllPlugin 分包
+- webpack 构建优化
+  - 多线程、多实例构建 thread-loader，多进程压缩
+  - 缩小打包作用域
+    - exclude/include（确定 loader 范围）
+    - resolve.modules 指明第三方模块的绝对路径
+    - resolve.extensions 尽可能减少后缀尝试的可能性
+    - noParse 对完全不需要解析的库进行忽略
+    - IgnorePlugin
+    - 合理利用 alias
+- 充分利用缓存提升二次构建速度
+  - 优化 babel-loader
+  - terser-webpack-plugin 开启缓存
+  - DllPlugin 动态链接库插件进行分包
+- webpack 优化产出代码方法
+  - 小图片 base64 位编码
+  - 懒加载
+  - 提取公共代码
+  - ignorePlugin
+  - 使用 cdn 加速
+  - -- 使用 production（自动压缩代码和使用 Tree-Shaking
+  - Scope Hosting
+- 其它
+  - module、chunk、bundle 的区别
+    - module 各个源码文件，webpack 中一切皆模块
+    - chunk 多模块合成的一个代码产出块，如 entry、import()、splitChunk 等
+    - bundle 最终产出的文件，每个 chunk 打包完都会产生一个 bundle

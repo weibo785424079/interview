@@ -1,3 +1,4 @@
+```js
 //  1、防抖
 function debounce(func, wait = 300) {
   let timeout;
@@ -378,3 +379,4 @@ function insertSort2(arr) {
   }
   return arr;
 }
+```

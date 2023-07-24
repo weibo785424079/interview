@@ -1,3 +1,4 @@
+```ts
 type Partial2<T> = {
   [P in keyof T]?: T[P];
 };
@@ -63,3 +64,4 @@ type ReturnType2<T extends (...args: any) => any> = T extends (
 ) => infer R
   ? R
   : any;
+```
