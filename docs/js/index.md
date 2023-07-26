@@ -249,7 +249,6 @@ function flat(arr) {
 
 // 19、实现深拷贝
 function deepClone(obj, hash = new WeakMap()) {
-  //先把特殊情况全部过滤掉 null undefined date reg
   if (obj == null) return obj; //null 和 undefined 都不用处理
   if (obj instanceof Date) return new Date(obj);
   if (obj instanceof RegExp) return new RegExp(obj);
@@ -376,6 +375,23 @@ function insertSort2(arr) {
       arr[j + 1] = arr[j]; // 如果 当前插入的元素小于当前遍历到的元素，则将该位置元素后移
     }
     arr[j + 1] = insertValue;
+  }
+  return arr;
+}
+
+// 26、格式化金额
+const formatMoney = (str) => {
+  return str.replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+};
+
+// 27、冒泡排序
+function bubbleSort(arr) {
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = 1; j < arr.length - i; j++) {
+      if (arr[j - 1] > arr[j]) {
+        [arr[j], arr[j - 1]] = [arr[j - 1], arr[j]];
+      }
+    }
   }
   return arr;
 }
