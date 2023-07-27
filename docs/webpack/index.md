@@ -1,8 +1,12 @@
 [webpack](https://www.webpackjs.com/concepts/)
 
 - webpack 介绍
+  - 现代化的前端打包工具
 - webpack 配置
 - webpack 构建流程
+  - 初始化流程：从配置文件和 Shell 语句中读取与合并参数，并初始化需要使用的插件和配置插件等执行环境所需要的参数
+  - 编译构建流程：从 Entry 发出，针对每个 Module 串行调用对应的 Loader 去翻译文件内容，再找到该 Module 依赖的 Module，递归地进行编译处理
+  - 输出流程：对编译后的 Module 组合成 Chunk，把 Chunk 转换成文件，输出到文件系统
 - webpack loader
   - babel-loader、ta-loader、style-loader、css-loader、postcss-loader、less-loader
   - file-loader、url-loader（处理文件）（url-loader 一般线上使用缓存等去优化构建）
@@ -39,4 +43,4 @@
   - module、chunk、bundle 的区别
     - module 各个源码文件，webpack 中一切皆模块
     - chunk 多模块合成的一个代码产出块，如 entry、import()、splitChunk 等
-    - bundle 最终产出的文件，每个 chunk 打包完都会产生一个 bundle
+    - bundle 最终产出的文件，每个 chunk 打包完都会产生一个 bundle，也可能多个 chunk 合并成一个 bundle 手写的或是引用的都是 module，webpack 处理时按 chunk 来分，最终输出的是叫 bundle。会发现，只是它们只是在不同时期的场景不同叫法而已。
